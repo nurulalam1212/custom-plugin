@@ -13,34 +13,34 @@ This is a custom plugin
 
 # Workflow
 - Create folder structure 
-    index.php
-    uninstall.php
-    custom-plugin.php
-    phpunit.xml
-    /inc
-        /Base
-            Activate.php - flush_rewrite_rules
-            Deactivate.php - flush_rewrite_rules
-            SettingsLink.php - Adds a settings link to the plugin 
-            Enqueue.php - Enqueues all scripts and stylesheets
-            BaseController.php - provides common path and url attributes.
-        /Pages
-            Admin.php - Handles Admin pages
-            - register()
-                initiates SettingsApi and AdminCallbacks classes
-                calls setPages method that sets $this->pages
-                calls setSubPages that sets $this->subpages
-                calls settingsApi object and envokes its addPages(this->pages)->withSubPage('Dashboard')->addSubPages(this->subpages)->register()
-            -setPage()
+    - index.php
+    - uninstall.php
+    - custom-plugin.php
+    - phpunit.xml
+    - /inc
+        - /Base
+            - Activate.php - flush_rewrite_rules
+            - Deactivate.php - flush_rewrite_rules
+            - SettingsLink.php - Adds a settings link to the plugin 
+            - Enqueue.php - Enqueues all scripts and stylesheets
+            - BaseController.php - provides common path and url attributes.
+        - /Pages
+            - Admin.php - Handles Admin pages
+              - register()
+                - initiates SettingsApi and AdminCallbacks classes
+                - calls setPages method that sets $this->pages
+                - calls setSubPages that sets $this->subpages
+                - calls settingsApi object and envokes its addPages(this->pages)->withSubPage('Dashboard')->addSubPages(this->subpages)->register()
+              - setPage()
                 sets this->pages array attribute
-            -SetSubPages()
+              - SetSubPages()
                 sets this->subpages array attribute
-        /Api
-            /Callbacks
-                AdminCallbacks.php - loads all admin related callbacks for example loading html
-            SettingsApi.php - Provides an API for accessing wordpress settings API
+        - /Api
+            - /Callbacks
+                - AdminCallbacks.php - loads all admin related callbacks for example loading html
+            - SettingsApi.php - Provides an API for accessing wordpress settings API
                 - register()
-                    if admin_pages variable is not empty then add pages to menu using admin_menu hook addAdminMenu is the callback
+                    - if admin_pages variable is not empty then add pages to menu using admin_menu hook - addAdminMenu is the callback
                 - addPages(array $pages)
                     sets $this->admin_pages and return object;
                 - withSubpage(string $title = null)
@@ -50,14 +50,14 @@ This is a custom plugin
                 - addSubPage(array $pages)
                     array_merge and combile existing admin_subpage with default page with rest of the pages.
                 - addAdminMenu use two foreach loops to add_menu_page and add_submenu_page 
-    /templates
-        /fronend - Custom template to be included for frontend
-        /backend - Admin side templates
-    /assets
-        /css 
-        /js
-    /tests
-        /unit
+    - /templates
+        -  /fronend - Custom template to be included for frontend
+        - /backend - Admin side templates
+    - /assets
+        - /css 
+        - /js
+    - /tests
+        - /unit
 - Create php unit test environment
 - write tests
 - setup composer autoload
