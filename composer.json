@@ -1,0 +1,18 @@
+{
+    "name": "nurul/custom-plugin",
+    "require-dev": {
+        "phpunit/phpunit": "8.4"
+    },
+    "authors": [
+        {
+            "name": "Nurul Alam",
+            "email": "nurul.alam.anik@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "Inc\\" : "./inc"
+        }
+    }
+}
